@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Message from the Heart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .proposal-content {
+            display: none;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(255, 105, 180, 0.1);
+        }
+
+        h1 {
+            color: #e91e63;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: #4a4a4a;
+        }
+
+        .btn {
+            font-size: 1.1rem;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-yes {
+            background-color: #ff4081;
+            border-color: #ff4081;
+        }
+
+        .btn-no {
+            background-color: #9c27b0;
+            border-color: #9c27b0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
+            border-radius: 15px;
+        }
+
+        .modal-header {
+            border-bottom: none;
+        }
+
+        .modal-footer {
+            border-top: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="proposal-content text-center">
+            <h1 class="mb-4">A Symphony of the Heart</h1>
+            <p>
+                In the tapestry of life, you are the golden thread that illuminates my world. Your effervescent spirit,
+                a beacon of joy, captivates me ceaselessly. Your profound beauty, both internal and external, leaves me
+                in awe. With you, I've discovered a sanctuary of bliss and inspiration. You are the singular star in my
+                universe, the unparalleled melody in the symphony of my existence. My affection for you is pure and
+                boundless; I yearn to intertwine our destinies. Would you grace me with your presence on a romantic
+                journey, exploring the depths of our connection?
+            </p>
+            <div class="d-flex justify-content-center mt-4">
+                <button class="btn btn-yes btn-lg mx-2" id="btnYes" data-bs-toggle="modal"
+                    data-bs-target="#celebrationModal">Absolutely</button>
+                <button class="btn btn-no btn-lg mx-2" id="btnNo">Perhaps</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Celebration Modal -->
+    <div class="modal fade" id="celebrationModal" tabindex="-1" aria-labelledby="celebrationModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="celebrationModalLabel" style="color: #e91e63;">My Heart Overflows with
+                        Joy!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Words cannot express the elation that fills my being at this moment. Your acceptance is the most
+                        precious gift, a treasure I will cherish eternally. With you by my side, I feel invincible,
+                        ready to embrace all of life's adventures.</p>
+                    <p>Your presence in my life is like the first light of dawn, bringing warmth, hope, and endless
+                        possibilities. I promise to nurture our connection, to be your steadfast companion through all
+                        of life's journeys.</p>
+                    <p>Thank you for making me the happiest person in the universe. I eagerly anticipate every moment
+                        we'll share, every laugh, every tender glance, as we write our story together.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-yes" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        window.onload = function () {
+            alert("Welcome to my website, Miss Tishaa ! Are you ready to explore my words of inspiration ? NOTE : Please answer after reading and thinking carefully.");
+            document.querySelector('.proposal-content').style.display = 'block';
+        };
+
+        document.getElementById('btnNo').addEventListener('mouseover', function (e) {
+            let x = Math.random() * (window.innerWidth - this.offsetWidth);
+            let y = Math.random() * (window.innerHeight - this.offsetHeight);
+            this.style.position = 'absolute';
+            this.style.left = `${x}px`;
+            this.style.top = `${y}px`;
+        });
+
+        document.getElementById('btnNo').addEventListener('click', function () {
+            this.textContent = 'Absolutely';
+            this.classList.remove('btn-no');
+            this.classList.add('btn-yes');
+            this.setAttribute('data-bs-toggle', 'modal');
+            this.setAttribute('data-bs-target', '#celebrationModal');
+        });
+    </script>
+</body>
+
+</html>
